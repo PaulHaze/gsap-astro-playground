@@ -34,9 +34,13 @@
 <script>
 	import { gsap } from 'gsap';
 
+	gsap.defaults({
+		duration: 1.8,
+	});
+
 	// gsap.to('.box', { x: 100 });
 	gsap.to('.circle-to', { x: 100, backgroundColor: 'red' });
-	gsap.from('.circle-from', { x: -100, backgroundColor: 'red' });
+	gsap.from('.circle-from', { x: -100 });
 	gsap.fromTo(
 		'.circle-fromTo',
 		{ x: -140, backgroundColor: 'blue' },
@@ -51,5 +55,11 @@
 	// Or an array
 	const boxTwo = document.querySelector('.box-two');
 	const boxThree = document.querySelector('.box-three');
-	gsap.to([boxTwo, boxThree], { x: -100 });
+	gsap.to([boxTwo, boxThree], {
+		x: -50,
+		y: -50,
+		duration: 1.5,
+		repeat: 5,
+		yoyo: true,
+	});
 </script>

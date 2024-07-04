@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
 import FirstAnimation from '@/components/gsap/FirstAnimation.astro';
+import Hover from '@/components/gsap/Hover.astro';
 
 import { SITE_TITLE } from '@/config';
 ---
@@ -10,5 +11,7 @@ import { SITE_TITLE } from '@/config';
 	<main class="flex w-full flex-col items-center">
 		<h1>First steps with GSAP</h1>
 		<FirstAnimation />
+		<br />
+		<Hover />
 	</main>
 </BaseLayout>

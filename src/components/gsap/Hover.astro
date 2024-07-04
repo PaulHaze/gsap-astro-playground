@@ -1,0 +1,28 @@
+<div class="mt-10">
+	<div class="hover-test bg-accent px-10 py-10"><h1>Hover Me</h1></div>
+</div>
+
+<script>
+	import { gsap } from 'gsap';
+
+	const hover = document.querySelector('.hover-test');
+
+	// const hoverAnim = gsap.to('.hover-test', {
+	// 	paused: true,
+	// 	duration: 0.5,
+	// 	opacity: 0,
+	// });
+	const hoverAnim = gsap.fromTo(
+		hover,
+		{
+			scale: 0.5,
+		},
+		{
+			duration: 0.5,
+			scale: 1,
+			ease: 'bounce.out',
+		}
+	);
+	hover?.addEventListener('mouseenter', () => hoverAnim.play());
+	hover?.addEventListener('mouseleave', () => hoverAnim.reverse());
+</script>
