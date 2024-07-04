@@ -25,4 +25,10 @@ export const routes: Route[] = [
 		label: 'Easing w/ React',
 		icon: 'easing',
 	},
+	{
+		href: '/custom-easing',
+		id: 'custom-easing',
+		label: 'Easing w/ Astro',
+		icon: 'easing',
+	},
 ];

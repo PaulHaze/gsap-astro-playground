@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BoxAstro from '@/components/gsap/BoxAstro.astro';
+---
+
+<BaseLayout title="Astro Easing" sideBarActiveItemID="custom-easing">
+	<main class="space-y-8">
+		<BoxAstro easingType="bounce.out" target="bounce-out" />
+	</main>
+</BaseLayout>

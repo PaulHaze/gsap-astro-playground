@@ -1,0 +1,20 @@
+---
+interface Props {
+	easingType: string;
+	target: string;
+}
+
+const { target, easingType = 'bounce.out' } = Astro.props;
+---
+
+<div>
+	<p>Ease: {easingType}</p>
+	<div
+		class=`h-[120px] w-[120px] rounded bg-gradient-to-b from-slate-300 to-slate-500 ${target}`
+	>
+	</div>
+</div>
+
+<script define:vars={{ target, easingType }}>
+	console.log(target, ' ', easingType);
+</script>
