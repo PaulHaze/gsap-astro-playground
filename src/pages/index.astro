@@ -1,11 +1,14 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
+import FirstAnimation from '@/components/gsap/FirstAnimation.astro';
+
 import { SITE_TITLE } from '@/config';
 ---
 
 <BaseLayout title={SITE_TITLE} sideBarActiveItemID="home">
-	<main class="flex w-full flex-col items-center justify-center pt-10">
-		<h1>Get Building!</h1>
+	<main class="flex w-full flex-col items-center">
+		<h1>First steps with GSAP</h1>
+		<FirstAnimation />
 	</main>
 </BaseLayout>

@@ -1,0 +1,55 @@
+<div class="mt-5 space-y-3">
+	<div class="box h-[150px] w-[150px] bg-primary flex-center">
+		<p>Gsap to (x: 100)</p>
+	</div>
+	<div
+		class="circle-to h-[150px] w-[150px] rounded-full bg-primary flex-center"
+	>
+		<p>to (x: 100)</p>
+		<p>fill: red</p>
+	</div>
+	<div
+		class="circle-from h-[150px] w-[150px] rounded-full bg-primary flex-center"
+	>
+		<p>from</p>
+	</div>
+	<div
+		class="circle-fromTo h-[150px] w-[150px] rounded-full bg-primary flex-center"
+	>
+		<p>fromTo</p>
+	</div>
+	<div
+		class="circle-set h-[150px] w-[150px] rounded-full bg-primary flex-center"
+	>
+		<p>set</p>
+	</div>
+	<div class="box-two h-[150px] w-[150px] bg-primary flex-center">
+		<p>Box Two</p>
+	</div>
+	<div class="box-three h-[150px] w-[150px] bg-primary flex-center">
+		<p>Box Three</p>
+	</div>
+</div>
+
+<script>
+	import { gsap } from 'gsap';
+
+	// gsap.to('.box', { x: 100 });
+	gsap.to('.circle-to', { x: 100, backgroundColor: 'red' });
+	gsap.from('.circle-from', { x: -100, backgroundColor: 'red' });
+	gsap.fromTo(
+		'.circle-fromTo',
+		{ x: -140, backgroundColor: 'blue' },
+		{ x: 140, backgroundColor: 'green' }
+	);
+	gsap.set('.circle-set', { x: 120, backgroundColor: 'green' });
+
+	// Using a variable
+	const box = document.querySelector('.box');
+	gsap.to(box, { x: 100 });
+
+	// Or an array
+	const boxTwo = document.querySelector('.box-two');
+	const boxThree = document.querySelector('.box-three');
+	gsap.to([boxTwo, boxThree], { x: -100 });
+</script>
