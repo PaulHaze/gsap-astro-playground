@@ -35,6 +35,9 @@ importers:
       astro:
         specifier: ^4.11.3
         version: 4.11.3(@types/node@20.14.3)(sass@1.77.6)(typescript@5.5.3)
+      astro-auto-import:
+        specifier: ^0.4.2
+        version: 0.4.2(astro@4.11.3(@types/node@20.14.3)(sass@1.77.6)(typescript@5.5.3))
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.0
@@ -828,6 +831,9 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
+  '@types/node@18.19.39':
+    resolution: {integrity: sha512-nPwTRDKUctxw3di5b4TfT3I0sWDiWoPQCZjXhvdkINntwr8lcoVCKsTgnXeRubKIlfnV+eN/HYk6Jb40tbcEAQ==}
+
   '@types/node@20.14.3':
     resolution: {integrity: sha512-Nuzqa6WAxeGnve6SXqiPAM9rA++VQs+iLZ1DDd56y0gdvygSZlQvZuvdFPR3yLqkVxPu4WrO02iDEyH1g+wazw==}
 
@@ -1066,6 +1072,12 @@ packages:
   astring@1.8.6:
     resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
     hasBin: true
+
+  astro-auto-import@0.4.2:
+    resolution: {integrity: sha512-ZgWZQ58+EhbEym1+aoUnNyECOy0wsG5uRUs+rVp/7BzHtj1V76J2qkhjaTWLplgNb+8WrzhvTQNxytmXRCW+Ow==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      astro: ^2.0.0 || ^3.0.0-beta || ^4.0.0-beta
 
   astro-eslint-parser@1.0.2:
     resolution: {integrity: sha512-8hJaCuqxObShWl2wEsnASqh/DbQ2O+S66m0Q3ctJlzBPEQ4pfGwwama3FCjZO3GDLQsjvn1T0v93Vxyu/+5fGw==}
@@ -4260,6 +4272,10 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
+  '@types/node@18.19.39':
+    dependencies:
+      undici-types: 5.26.5
+
   '@types/node@20.14.3':
     dependencies:
       undici-types: 5.26.5
@@ -4574,6 +4590,12 @@ snapshots:
   ast-types-flow@0.0.8: {}
 
   astring@1.8.6: {}
+
+  astro-auto-import@0.4.2(astro@4.11.3(@types/node@20.14.3)(sass@1.77.6)(typescript@5.5.3)):
+    dependencies:
+      '@types/node': 18.19.39
+      acorn: 8.12.0
+      astro: 4.11.3(@types/node@20.14.3)(sass@1.77.6)(typescript@5.5.3)
 
   astro-eslint-parser@1.0.2(typescript@5.5.3):
     dependencies:
