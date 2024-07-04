@@ -3,10 +3,9 @@
 		<p>Gsap to (x: 100)</p>
 	</div>
 	<div
-		class="circle-to h-[150px] w-[150px] rounded-full bg-primary flex-center"
+		class="circ-hover h-[150px] w-[150px] rounded-full bg-primary flex-center"
 	>
-		<p>to (x: 100)</p>
-		<p>fill: red</p>
+		<p>Hover Me</p>
 	</div>
 	<div
 		class="circle-from h-[150px] w-[150px] rounded-full bg-primary flex-center"
@@ -39,7 +38,7 @@
 	});
 
 	// gsap.to('.box', { x: 100 });
-	gsap.to('.circle-to', { x: 100, backgroundColor: 'red' });
+	// gsap.to('.circle-to', { x: 100, backgroundColor: 'red' });
 	gsap.from('.circle-from', { x: -100 });
 	gsap.fromTo(
 		'.circle-fromTo',
@@ -56,10 +55,17 @@
 	const boxTwo = document.querySelector('.box-two');
 	const boxThree = document.querySelector('.box-three');
 	gsap.to([boxTwo, boxThree], {
-		x: -50,
-		y: -50,
+		x: -150,
+		y: -150,
 		duration: 1.5,
 		repeat: 5,
 		yoyo: true,
+		stagger: 1,
+	});
+
+	const circleHover = document.querySelector('.circ-hover');
+	circleHover?.addEventListener('mouseenter', () => {
+		circleHover.classList.add('circle-to');
+		gsap.to('.circle-to', { x: 100, backgroundColor: 'red' });
 	});
 </script>
