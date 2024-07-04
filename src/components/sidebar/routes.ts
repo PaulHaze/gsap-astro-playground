@@ -17,6 +17,6 @@ export const routes: Route[] = [
 		href: '/easing',
 		id: 'easing',
 		label: 'Easing',
-		// icon: 'home',
+		icon: 'easing',
 	},
 ];
