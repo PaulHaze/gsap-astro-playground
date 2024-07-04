@@ -5,7 +5,7 @@
 	<div
 		class="circ-hover h-[150px] w-[150px] rounded-full bg-primary flex-center"
 	>
-		<p>Hover Me</p>
+		<p>Click Me</p>
 	</div>
 	<div
 		class="circle-from h-[150px] w-[150px] rounded-full bg-primary flex-center"
@@ -64,7 +64,7 @@
 	});
 
 	const circleHover = document.querySelector('.circ-hover');
-	circleHover?.addEventListener('mouseenter', () => {
+	circleHover?.addEventListener('click', () => {
 		circleHover.classList.add('circle-to');
 		gsap.to('.circle-to', { x: 100, backgroundColor: 'red' });
 	});

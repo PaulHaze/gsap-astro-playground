@@ -1,0 +1,151 @@
+<div class="flex w-full flex-col space-y-5">
+	<h1 class="text-center">Easing examples</h1>
+	<div class="">
+		<p>Default</p>
+		<div class="box default"></div>
+	</div>
+	<div class="">
+		<p>Ease: bounce.out, rotation</p>
+		<div class="box bounce-out"></div>
+	</div>
+	<div class="">
+		<p>Ease: bounce.out, transform x</p>
+		<div class="box horiz-bounce"></div>
+	</div>
+	<div class="">
+		<p>Ease: back.out, transform x</p>
+		<div class="box horiz-backout"></div>
+	</div>
+	<div class="">
+		<p>Ease: back.in, transform x</p>
+		<div class="box horiz-backin"></div>
+	</div>
+	<div class="">
+		<p>Ease: circ.in, transform x</p>
+		<div class="box horiz-circin"></div>
+	</div>
+	<div class="">
+		<p>Ease: circ.out, transform x</p>
+		<div class="box horiz-circout"></div>
+	</div>
+	<div class="">
+		<p>Ease: elastic.in, (1.2, 0.5), transform x</p>
+		<div class="box elasticin"></div>
+	</div>
+	<div class="">
+		<p>Ease: elastic.out, (1.2, 0.5), transform x</p>
+		<div class="box elasticout"></div>
+	</div>
+	<div class="">
+		<p>Ease: elastic.inOut, (1.2, 0.5), transform x</p>
+		<div class="box elasticinout"></div>
+	</div>
+</div>
+
+<style>
+	.box {
+		@apply h-[120px] w-[120px] rounded bg-gradient-to-b from-slate-300 to-slate-500;
+	}
+</style>
+
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	gsap.to('.default', { rotation: 360, duration: 2, ease: 'none' });
+
+	gsap.to('.bounce-out', {
+		scrollTrigger: {
+			trigger: '.bounce-out',
+			toggleActions: 'play reverse play reverse',
+		},
+		rotation: 360,
+		duration: 2,
+		ease: 'bounce.out',
+	});
+	gsap.to('.horiz-bounce', {
+		scrollTrigger: {
+			trigger: '.horiz-bounce',
+			start: 'middle bottom',
+			toggleActions: 'play reverse play reverse',
+			markers: true,
+		},
+		x: '55vw',
+		duration: 2,
+		ease: 'bounce.out',
+	});
+	gsap.to('.horiz-backout', {
+		scrollTrigger: {
+			trigger: '.horiz-backout',
+			start: 'top center',
+			toggleActions: 'play reverse play reverse',
+		},
+		x: '55vw',
+		duration: 2,
+		ease: 'back.out(1.9)',
+	});
+	gsap.to('.horiz-backin', {
+		scrollTrigger: {
+			trigger: '.horiz-backin',
+			start: 'top center',
+			toggleActions: 'play reverse play reverse',
+			markers: true,
+		},
+		x: '55vw',
+		duration: 2,
+		ease: 'back.in(1.9)',
+	});
+	gsap.to('.horiz-circin', {
+		scrollTrigger: {
+			trigger: '.horiz-circin',
+			start: 'top center',
+			toggleActions: 'play reverse play reverse',
+		},
+		x: '55vw',
+		duration: 2,
+		ease: 'circ.in(1.9)',
+	});
+	gsap.to('.horiz-circout', {
+		scrollTrigger: {
+			trigger: '.horiz-circout',
+			start: 'top center',
+			toggleActions: 'play reverse play reverse',
+			markers: true,
+		},
+		x: '55vw',
+		duration: 1,
+		ease: 'circ.out(1.9)',
+	});
+	gsap.to('.elasticin', {
+		scrollTrigger: {
+			trigger: '.elasticin',
+			start: 'top center',
+			toggleActions: 'play reverse play reverse',
+		},
+		x: '55vw',
+		duration: 2,
+		ease: 'elastic.in(1.2,0.5)',
+	});
+	gsap.to('.elasticout', {
+		scrollTrigger: {
+			trigger: '.elasticout',
+			start: 'bottom bottom',
+			toggleActions: 'play reverse play reverse',
+		},
+		x: '55vw',
+		duration: 2,
+		ease: 'elastic.out(1.2,0.5)',
+	});
+	gsap.to('.elasticinout', {
+		scrollTrigger: {
+			trigger: '.elasticinout',
+			start: 'bottom bottom',
+			toggleActions: 'play reverse play reverse',
+		},
+		x: '55vw',
+		duration: 2,
+		ease: 'elastic.inOut(1.2,0.5)',
+	});
+</script>
