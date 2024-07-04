@@ -1,11 +1,14 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-import { BoxEasingExample } from '@/components/gsap/react/BoxEasingExample.tsx';
+import { BoxExample } from '@/components/gsap/react/BoxExample.tsx';
 ---
 
 <BaseLayout title="Easing" sideBarActiveItemID="easing-react">
-	<main>
-		<BoxEasingExample />
+	<main class="space-y-8">
+		<BoxExample />
+		<BoxExample easingType="power1.in" />
+		<BoxExample easingType="power1.out" />
+		<BoxExample easingType="power1.inOut" />
 	</main>
 </BaseLayout>

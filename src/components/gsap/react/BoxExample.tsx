@@ -9,8 +9,10 @@ interface BoxExampleProps {
 export function BoxExample({ easingType }: BoxExampleProps) {
 	return (
 		<div>
-			<p>Easing Type: {easingType ? easingType : 'default'}</p>
-			<Box easingType={easingType} />
+			<p className="mb-1 text-sm font-semibold uppercase opacity-90">
+				{easingType ? easingType : 'default'}
+			</p>
+			<Box easingType={easingType} duration={2} />
 		</div>
 	);
 }
