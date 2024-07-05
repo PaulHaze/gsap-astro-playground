@@ -11,23 +11,41 @@ interface BoxExampleProps {
 
 export function BoxExample({ easingType, target }: BoxExampleProps) {
 	const [velocity, setVelocity] = useState(1);
+	const [duration, setDuration] = useState(1);
 	return (
 		<div className="mb-8">
-			<div className="flex items-end gap-x-6">
-				<p className="mb-2 text-sm font-semibold uppercase opacity-90">
+			<div className="flex items-end justify-start">
+				<p className="mb-2 mr-4 max-w-[150px] flex-grow text-sm font-semibold uppercase opacity-90">
 					{easingType ? easingType : 'default'}
 				</p>
-				<div className="mb-4 ml-3 w-[50%]">
+				{/* Sliders */}
+				<div className="">
 					<p className="mb-2">Velocity {velocity}</p>
 					<input
+						className="mr-2"
 						// className="range range-xs"
 						step="0.1"
 						title="velocity"
 						type="range"
 						value={velocity}
-						min={1}
+						min={0.1}
 						max={5}
 						onChange={(e) => setVelocity(Number(e.target.value))}
+					/>
+				</div>
+
+				<div className="">
+					<p className="mb-2">Duration {duration}s</p>
+					<input
+						// className="range range-xs"
+						className=""
+						step="0.25"
+						title="duration"
+						type="range"
+						value={duration}
+						min={0.25}
+						max={5}
+						onChange={(e) => setDuration(Number(e.target.value))}
 					/>
 				</div>
 			</div>
@@ -35,7 +53,7 @@ export function BoxExample({ easingType, target }: BoxExampleProps) {
 			<Box
 				target={target}
 				easingType={easingType}
-				duration={1}
+				duration={duration}
 				velocity={velocity}
 			/>
 		</div>

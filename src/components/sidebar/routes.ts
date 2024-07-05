@@ -26,9 +26,21 @@ export const routes: Route[] = [
 		icon: 'easing',
 	},
 	{
-		href: '/custom-easing',
-		id: 'custom-easing',
-		label: 'Easing w/ Astro',
-		icon: 'easing',
+		href: '/tweening-basics',
+		id: 'tweening-basics',
+		label: 'Tweening Basics',
+		icon: 'tweening',
+	},
+	{
+		href: '/timelines',
+		id: 'timelines',
+		label: 'Timelines',
+		icon: 'timelines',
+	},
+	{
+		href: '/final-project',
+		id: 'final-project',
+		label: 'Final Project',
+		icon: 'final-project',
 	},
 ];
