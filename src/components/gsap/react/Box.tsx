@@ -1,4 +1,4 @@
-// import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -14,23 +14,45 @@ interface BoxProps {
 	target: string;
 }
 
-export function Box({ easingType, duration = 2, target }: BoxProps) {
+export function Box({ easingType, duration, target }: BoxProps) {
+	const [hasAnimated, setHasAnimated] = useState(false);
 	const screenSize = useScreenSize();
 
-	const xLength = 160;
-	useGSAP(() => {
+	const container = useRef<HTMLInputElement>(null);
+	const { contextSafe } = useGSAP({ scope: container });
+
+	// const handleOnClick = contextSafe(() => {
+	// 	gsap.to(`.${target}`, {
+	// 		x: () => (screenSize.width < 1200 ? window.innerWidth - 160 : 950),
+	// 		ease: easingType,
+	// 		duration,
+	// 	});
+	// 	setHasAnimated((prev) => !prev);
+	// });
+	const boxAnimation = contextSafe(() => {
 		gsap.to(`.${target}`, {
-			x: () => window.innerWidth - xLength,
+			x: () =>
+				hasAnimated
+					? 0
+					: screenSize.width < 1200
+						? window.innerWidth - 160
+						: 950,
+
 			ease: easingType,
+			duration,
 		});
+		setHasAnimated((prev) => !prev);
 	});
+
 	return (
-		<div
-			className={`box h-[120px] w-[120px] flex-col rounded bg-gradient-to-b from-slate-300 to-slate-500 text-base-300 flex-center ${target}`}
-		>
-			<p>SHOW</p>
-			<p>{easingType}</p>
-			<p>time: {duration}s</p>
+		<div ref={container} className="">
+			<div
+				className={`box power1-in h-[120px] w-[120px] flex-col rounded bg-gradient-to-b from-slate-300 to-slate-500 text-base-300 flex-center ${target}`}
+			>
+				<button onClick={boxAnimation}>
+					{hasAnimated ? 'RESET' : 'CLICK ME'}
+				</button>
+			</div>
 		</div>
 	);
 }

@@ -13,7 +13,8 @@ export function BoxExample({ easingType, target }: BoxExampleProps) {
 			<p className="mb-2 text-sm font-semibold uppercase opacity-90">
 				{easingType ? easingType : 'default'}
 			</p>
-			<Box target={target} easingType={easingType} duration={2} />
+
+			<Box target={target} easingType={easingType} duration={1} />
 		</div>
 	);
 }
