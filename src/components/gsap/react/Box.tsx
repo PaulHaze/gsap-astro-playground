@@ -12,9 +12,10 @@ interface BoxProps {
 	easingType: EasingType;
 	duration?: number;
 	target: string;
+	velocity: number;
 }
 
-export function Box({ easingType, duration, target }: BoxProps) {
+export function Box({ easingType, duration, target, velocity }: BoxProps) {
 	const [hasAnimated, setHasAnimated] = useState(false);
 	const screenSize = useScreenSize();
 
@@ -38,7 +39,7 @@ export function Box({ easingType, duration, target }: BoxProps) {
 						? window.innerWidth - 160
 						: 950,
 
-			ease: easingType,
+			ease: `${easingType}(${velocity})`,
 			duration,
 		});
 		setHasAnimated((prev) => !prev);
