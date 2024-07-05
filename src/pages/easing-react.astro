@@ -6,9 +6,16 @@ import { BoxExample } from '@/components/gsap/react/BoxExample.tsx';
 
 <BaseLayout title="Easing" sideBarActiveItemID="easing-react">
 	<main class="space-y-8">
-		<BoxExample />
-		<BoxExample easingType="power1.in" />
-		<BoxExample easingType="power1.out" />
-		<BoxExample easingType="power1.inOut" />
+		<BoxExample client:only="react" target="power1-in" easingType="power1.in" />
+		<BoxExample
+			client:only="react"
+			target="power1-out"
+			easingType="power1.out"
+		/>
+		<BoxExample
+			client:only="react"
+			target="power1-inOut"
+			easingType="power1.inOut"
+		/>
 	</main>
 </BaseLayout>

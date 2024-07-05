@@ -38,14 +38,14 @@ const {
 		{TRANSITION_API && <ViewTransitions />}
 	</head>
 	<body class="min-h-screen justify-between">
-		<div class="drawer bg-base-100 lg:drawer-open">
+		<div class="drawer bg-base-100">
 			<input id="my-drawer" type="checkbox" class="drawer-toggle" />
 			<div
 				class="drawer-content flex min-h-screen flex-col justify-between bg-base-100"
 			>
 				<Header title={title} />
 				<div class="flex flex-grow md:flex md:justify-center">
-					<main class="max-w-[100vw] flex-grow p-6 pt-10 lg:max-w-[900px]">
+					<main class="max-w-[100vw] flex-grow p-6 pt-10 lg:max-w-[1200px]">
 						<slot />
 					</main>
 				</div>
