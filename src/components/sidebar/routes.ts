@@ -26,8 +26,8 @@ export const routes: Route[] = [
 		icon: 'easing',
 	},
 	{
-		href: '/tweening-basics',
-		id: 'tweening-basics',
+		href: '/tweening',
+		id: 'tweening',
 		label: 'Tweening Basics',
 		icon: 'tweening',
 	},
