@@ -1,20 +1,25 @@
 ---
 interface Props {
-	easingType: string;
 	target: string;
+	xValue?: number;
+	yValue?: number;
+	easingType?: string;
 }
 
-const { target, easingType = 'bounce.out' } = Astro.props;
+const { target, easingType, xValue = 250 } = Astro.props;
 ---
 
 <div>
-	<p>Ease: {easingType}</p>
+	<p>Ease: {easingType ? easingType : 'none'}</p>
 	<div
-		class=`h-[120px] w-[120px] rounded bg-gradient-to-b from-slate-300 to-slate-500 ${target}`
+		data-target={target}
+		data-easing={easingType}
+		class=`h-[120px] w-[120px] rounded bg-gradient-to-b from-slate-300 to-slate-500 flex-center ${target}`
 	>
+		<p class="text-slate-800">Tween to {xValue}</p>
 	</div>
 </div>
 
-<script define:vars={{ target, easingType }}>
-	console.log(target, ' ', easingType);
+<script>
+	gsap.to('.basic-tween', { x: 250 });
 </script>
