@@ -1,27 +1,17 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-
-import BoxGsap from '@/components/gsap/BoxGsap.astro';
+import BasicTweening from '@/course/tweening/BasicTweening.astro';
+import TweeningFromTo from '@/course/tweening/TweeningFromTo.astro';
 ---
 
 <BaseLayout title="Tweening Basics" sideBarActiveItemID="tweening">
 	<main class="">
-		<h1 class="text-center">Tweening Basis</h1>
-		<div class="mx-auto w-full max-w-md">
-			<BoxGsap target="basic-tween" title="Basic Tween" />
-			<BoxGsap target="multiple-tween" title="Multiple Tween" />
+		<!-- TWEENING BASICS -->
+		<div class="">
+			<h1 class="text-center">Tweening Basics - Gsap.to</h1>
+			<BasicTweening />
 		</div>
+		<hr class="my-10 opacity-10" />
+		<TweeningFromTo />
 	</main>
 </BaseLayout>
-
-<script>
-	gsap.to('.basic-tween', { x: 250 });
-	gsap.to('.multiple-tween', {
-		x: 150,
-		rotation: 180,
-		y: -50,
-		scale: 1.5,
-		duration: 2,
-		ease: 'bounce.out',
-	});
-</script>

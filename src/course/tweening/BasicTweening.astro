@@ -1,0 +1,99 @@
+---
+import BoxGsap from '@/components/gsap/BoxGsap.astro';
+---
+
+<div class="mx-auto flex max-w-md flex-col items-center space-y-4">
+	<BoxGsap target="basic-tween" title="Basic Tween" />
+	<BoxGsap target="multiple-tween" title="Multiple Tween" />
+	<BoxGsap target="rotationX" title="Rotate X" />
+	<BoxGsap target="rotationY" title="Rotate Y" />
+	<BoxGsap target="rotationXY" title="Rotate X+Y" />
+	<BoxGsap target="skewX" title="Skew X" />
+	<BoxGsap target="skewY" title="Skew Y" />
+	<BoxGsap target="scale" title="Scale 3" />
+	<BoxGsap target="borderRadius" title="Border Radius" />
+	<BoxGsap target="boxWidth" title="Width" />
+	<h4 class="self-start">Exercise: gsap.fromTo</h4>
+	<BoxGsap target="fromTo" title="From To" />
+	<BoxGsap target="fromToWidth" title="FromTo Width w/delay" />
+</div>
+
+<script>
+	gsap.registerPlugin(ScrollTrigger);
+	ScrollTrigger.defaults({
+		toggleActions: 'play reverse play reverse',
+		start: 'bottom bottom',
+	});
+
+	gsap.defaults({
+		duration: 2,
+	});
+	gsap.to('.basic-tween', { x: 150 });
+	gsap.to('.multiple-tween', {
+		x: 140,
+		rotation: 180,
+		y: -50,
+		scale: 1.5,
+		duration: 2,
+		ease: 'bounce.out',
+	});
+	gsap.to('.rotationX', {
+		rotateX: 360,
+		// rotateY: 120,
+	});
+	gsap.to('.rotationY', {
+		rotateY: 360,
+	});
+	gsap.to('.rotationXY', {
+		rotateX: 360,
+		rotateY: 360,
+	});
+	gsap.to('.skewX', {
+		scrollTrigger: '.skewX',
+		skewX: -30,
+	});
+	gsap.to('.skewY', {
+		scrollTrigger: '.skewY',
+		skewY: -30,
+	});
+	gsap.to('.scale', {
+		scrollTrigger: '.scale',
+		ease: 'bounce.out',
+		scale: 1.5,
+	});
+	gsap.to('.borderRadius', {
+		scrollTrigger: '.borderRadius',
+		borderRadius: 100,
+		duration: 5,
+	});
+	gsap.to('.boxWidth', {
+		scrollTrigger: '.boxWidth',
+		ease: 'elastic.inOut',
+		width: 350,
+		duration: 2,
+	});
+	gsap.fromTo(
+		'.fromTo',
+		{ x: -100, y: 50, scale: 0.3, opacity: 0 },
+		{
+			scrollTrigger: '.fromTo',
+			x: 100,
+			y: -50,
+			scale: 1.4,
+			opacity: 1,
+			duration: 3,
+		}
+	);
+	gsap.fromTo(
+		'.fromToWidth',
+		{ width: 10, opacity: 0 },
+		{
+			scrollTrigger: '.fromToWidth',
+			ease: 'elastic.out',
+			delay: 1,
+			duration: 5,
+			width: 350,
+			opacity: 1,
+		}
+	);
+</script>

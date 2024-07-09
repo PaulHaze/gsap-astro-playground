@@ -1,0 +1,34 @@
+---
+import BoxGsap from '@/components/gsap/BoxGsap.astro';
+---
+
+<div class="mx-auto flex max-w-md flex-col items-center space-y-4">
+	<h1>Tweening from</h1>
+
+	<BoxGsap target="from" title="From 1.5 scale" />
+	<BoxGsap target="fromY" title="From 100Y" />
+	<BoxGsap target="fromX" title="From -100X" />
+</div>
+
+<script>
+	gsap.registerPlugin(ScrollTrigger);
+
+	ScrollTrigger.defaults({
+		toggleActions: 'play reverse play reverse',
+		start: 'bottom bottom',
+	});
+
+	gsap.defaults({
+		duration: 2,
+	});
+
+	gsap.from('.from', {
+		scale: 1.5,
+	});
+	gsap.from('.fromY', {
+		y: 100,
+	});
+	gsap.from('.fromX', {
+		x: -100,
+	});
+</script>

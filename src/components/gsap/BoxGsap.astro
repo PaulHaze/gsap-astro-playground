@@ -7,10 +7,8 @@ interface Props {
 const { target, title } = Astro.props;
 ---
 
-<div>
-	<div
-		class=`h-[120px] w-[120px] rounded bg-gradient-to-b from-slate-300 to-slate-500 flex-center ${target}`
-	>
-		<p class="text-slate-800">{title}</p>
-	</div>
+<div
+	class=`h-[120px] w-[120px] rounded bg-gradient-to-b from-slate-300 to-slate-500 flex-center ${target}`
+>
+	<p class="text-slate-800">{title}</p>
 </div>
