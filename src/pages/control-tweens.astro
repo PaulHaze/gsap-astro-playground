@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+import BoxGsap from '@/components/gsap/BoxGsap.astro';
+---
+
+<BaseLayout title="Control Tweens" sideBarActiveItemID="control-tweens">
+	<main class="flex w-full max-w-lg flex-col items-center">
+		<h1>Control your tweens</h1>
+		<hr class="my-5 w-full opacity-10" />
+		<BoxGsap target="controls" title="Control Me" />
+	</main>
+</BaseLayout>

@@ -32,6 +32,12 @@ export const routes: Route[] = [
 		icon: 'tweening',
 	},
 	{
+		href: '/control-tweens',
+		id: 'control-tweens',
+		label: 'Controlling Tweens',
+		icon: 'controls',
+	},
+	{
 		href: '/timelines',
 		id: 'timelines',
 		label: 'Timelines',
