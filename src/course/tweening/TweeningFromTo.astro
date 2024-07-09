@@ -8,6 +8,12 @@ import BoxGsap from '@/components/gsap/BoxGsap.astro';
 	<BoxGsap target="from" title="From 1.5 scale" />
 	<BoxGsap target="fromY" title="From 100Y" />
 	<BoxGsap target="fromX" title="From -100X" />
+	<div class="flex space-x-4">
+		<BoxGsap target="fadeInUp" title="Fade In Up on scroll" />
+		<BoxGsap target="fadeInUp" title="Fade In Up on scroll" />
+		<BoxGsap target="fadeInUp" title="Fade In Up on scroll" />
+		<div class="h-[500px]"></div>
+	</div>
 </div>
 
 <script>
@@ -23,12 +29,33 @@ import BoxGsap from '@/components/gsap/BoxGsap.astro';
 	});
 
 	gsap.from('.from', {
+		scrollTrigger: '.from',
 		scale: 1.5,
 	});
 	gsap.from('.fromY', {
+		scrollTrigger: '.fromY',
 		y: 100,
 	});
 	gsap.from('.fromX', {
+		scrollTrigger: '.fromX',
 		x: -100,
 	});
+	gsap.fromTo(
+		'.fadeInUp',
+		{
+			y: 30,
+			opacity: 0,
+			scale: 0.9,
+		},
+		{
+			scrollTrigger: '.fadeInUp',
+			delay: 1,
+			duration: 2,
+			stagger: 0.6,
+			y: 0,
+			opacity: 1,
+			scale: 1,
+			ease: 'power1',
+		}
+	);
 </script>
