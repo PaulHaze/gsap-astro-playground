@@ -1,0 +1,40 @@
+---
+import BoxGsap from '@/components/gsap/BoxGsap.astro';
+
+import { Icon } from 'astro-icon/components';
+---
+
+<h1>Control your tweens</h1>
+<hr class="my-5 w-full opacity-10" />
+<div class="self-start">
+	<BoxGsap target="controls" title="Control Me" />
+</div>
+<div class="button-container mt-5">
+	<button id="play"><Icon name="play" /></button>
+	<button id="pause"><Icon name="pause" /></button>
+	<button id="reverse"><Icon name="play" class="rotate-180" /></button>
+	<button id="restart"><Icon name="restart" /></button>
+</div>
+
+<style>
+	button {
+		@apply rounded bg-yellow-500 p-4 text-slate-800 hover:bg-yellow-700;
+	}
+</style>
+
+<script>
+	const tween = gsap.to('.controls', {
+		x: 580,
+		duration: 5,
+		paused: true,
+	});
+	const playBtn = document.getElementById('play');
+	const pauseBtn = document.getElementById('pause');
+	const reverseBtn = document.getElementById('reverse');
+	const restartBtn = document.getElementById('restart');
+
+	playBtn!.onclick = () => tween.play();
+	pauseBtn!.onclick = () => tween.pause();
+	reverseBtn!.onclick = () => tween.reverse();
+	restartBtn!.onclick = () => tween.restart();
+</script>
